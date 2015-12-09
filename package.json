@@ -1,0 +1,29 @@
+{
+  "name": "worldcup",
+  "version": "1.0.0",
+  "description": "Worldcup server",
+  "main": "server.js",
+  "dependencies": {
+    "async": "^1.5.0",
+    "express": "^4.13.3",
+    "xmlhttprequest": "^1.8.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "NODE_ENV=development node ./server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmartines/klip-server.git"
+  },
+  "keywords": [
+    "klip"
+  ],
+  "author": "dan martines",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dmartines/klip-server/issues"
+  },
+  "homepage": "https://github.com/dmartines/klip-server"
+}
