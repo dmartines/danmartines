@@ -1,20 +1,12 @@
 
 
-# worldcup
+# New website with project portfolio
 
-
-
-## Usage
-
-
-
-## Developing
-
-
+Added bio, project portfolio, and access to blog which is still in wordpress.
 
 ### Tools
 
-Created with [Nodeclipse](https://github.com/Nodeclipse/nodeclipse-1)
- ([Eclipse Marketplace](http://marketplace.eclipse.org/content/nodeclipse), [site](http://www.nodeclipse.org))   
-
-Nodeclipse is free open-source project that grows with your contributions.
+Created with 
+- [Node.js](http://nodejs.org)  
+- [Bootstrap](http://getbootstrap.com/)
+- [React](https://facebook.github.io/react/)
