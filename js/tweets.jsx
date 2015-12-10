@@ -7,20 +7,21 @@ var Tweets = React.createClass({
   componentDidUpdate: function() {
     console.log('Component did update');
     if ($('#grid-item').length > 0) {
-      setTimeout(refreshMasonry, 500); 
+     	setTimeout(refreshMasonry, 500); 
     }
   },
 
   componentDidMount: function() {
     console.log('Component did mount');
     if ($('#grid-item').length > 0) {
-      setTimeout(refreshMasonry, 5000); 
+     	setTimeout(refreshMasonry, 1000); 
     }
   },
 
   render: function() {
-    var Tweet = this.props.data.map(function(d, index) {
-      return (<div className="grid-item" id="grid-item">
+  	var firstArray = this.props.data.slice(0,200);
+    var Tweet = firstArray.map(function(d, index) {
+      return (<div data-number={index} className="grid-item" id="grid-item">
           <a target="_blank" href={ "https://twitter.com/" + d.handle + "/status/" + d.tweetid }>
             <img src={ d.image }></img>
           </a>
@@ -30,32 +31,94 @@ var Tweets = React.createClass({
   }
 });
 
+//$grid.append( $elems ).masonry( 'appended', $elems );
+
 ReactDOM.render(<Tweets data={data} />, document.getElementById('tweets'));
   // <Tweets data={data}/>,
 
 function refreshMasonry() {
-  $('#grid').imagesLoaded()
-    .always( function( instance ) {
-      console.log('all images loaded');
-      $('#grid').masonry({
-        // options
-        itemSelector: '#grid-item',
-        // gutter: 1,
-        // transitionDuration: '0.4s',
-        percentPosition: true
-      });
-      $('#loading').fadeOut('slow');
-      $('#tweets').fadeIn();
-    })
-    .done( function( instance ) {
-      console.log('all images successfully loaded');
-    })
-    .fail( function() {
-      console.log('all images loaded, at least one is broken');
-    })
-    .progress( function( instance, image ) {
-      var html = "<h2>" + instance.progressedCount + " of " + instance.images.length + " images loaded</h2>";
-      $('#imageCount').html(html);
-  });
+	$('#grid').imagesLoaded()
+		.always( function( instance ) {
+			console.log('all images loaded');
+			$('#loading').fadeOut('slow');
+			$('#tweets').fadeIn('slow');
+		})
+		.done( function( instance ) {
+			console.log('all images successfully loaded');
+			$('#grid').masonry({
+				itemSelector: '#grid-item',
+				percentPosition: true
+			});			
+			setTimeout(loadRemainingItems, 2000);
+		})
+		.fail( function() {
+			console.log('all images loaded, at least one is broken');
+		})
+		.progress( function( instance, image ) {
+			//progress-bar
+			// $('#progress-bar').attr('aria-valuenow',instance.progressedCount);
+			var progress = (100*(instance.progressedCount / instance.images.length)) + '%';
+			$('#progress-bar').css('width',progress);
+		});
+}
 
+function loadRemainingItems() {
+	var remainingArray = data.slice(200);
+	var counter = 0;
+	var elements = '';
+	var $grid = $('#grid');
+	$grid.masonry({
+      itemSelector: '#grid-item',
+      isAnimated: true
+    });
+
+	for (var index = 0; index < remainingArray.length ; index++) {
+		console.log("Loading additional " + index);
+		var c = (index*1) + 50;
+		counter++;
+		elements = '<div number="' + c + '" class="grid-item1" id="grid-item1">' +
+			          '<a target="_blank" href="https://twitter.com/' + remainingArray[index].handle + '/status/' + remainingArray[index].tweetid + '">'+
+			            '<img src="' + remainingArray[index].image + '" style="min-height:40px; ">' +
+					   '</a>' +
+		        	'</div>';
+		$('#photos').append(elements);
+		if (counter == 10) {
+			var $elements = $( elements );
+			$grid.append( $elements ).masonry( 'appended', $elements );
+			$grid.masonry('reloadItems');
+			// $('#grid').masonry({
+			// 	itemSelector: '#grid-item',
+			// 	percentPosition: true
+			// });
+			elements = '';
+			counter = 0;
+		}		
+	}
+
+
+	// remainingArray.map(function(d, index) {
+	// 	console.log("Loading additional " + index);
+	// 	var c = (index*1) + 50;
+	// 	counter++;
+	// 	elements += '<div number="' + c + '" class="grid-item" id="grid-item">' +
+	// 		          '<a target="_blank" href="https://twitter.com/' + d.handle + '/status/' + d.tweetid + '">'+
+	// 		            '<img src="' + d.image + '" style="min-height:40px; ">' +
+	// 				   '</a>' +
+	// 	        	'</div>';
+	// 	if (counter == 10) {
+	// 		var $elements = $( elements );
+	// 		$grid.append( $elements ).masonry( 'appended', $elements );
+	// 		// $('#grid').masonry({
+	// 		// 	itemSelector: '#grid-item',
+	// 		// 	percentPosition: true
+	// 		// });
+	// 		elements = '';
+	// 		counter = 0;
+	// 	}
+	// });
+	$grid.masonry();
+	// $('#grid').masonry({
+	// 	itemSelector: '#grid-item',
+	// 	percentPosition: true
+	// });
 }

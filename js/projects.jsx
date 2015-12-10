@@ -4,9 +4,8 @@ var data = [
 		image: 'img/thumb-vis.png',
 		heading: 'Healthcare analytics',
 		subheading: 'CTO tech startup',
-		tags: ['java','javascript','apache'],
-		link: 'vis',
-		url: 'https://itunes.apple.com/us/app/weather-minimalist-weather/id1028230928?ls=1&mt=8'
+		tags: ['java', 'apache', 'mysql'],
+		link: 'vis'
 	},
 	{ 
 		image: 'img/thumb-weather.png',
@@ -24,11 +23,19 @@ var data = [
 		tags: ['node.js','twitter','api']
 	},
 	{ 
+		image: 'img/thumb-alab.png',
+		heading: 'Analytics lab',
+		subheading: 'Machine learning',
+		link: 'alab',
+		tags: ['python','natural language','wordle']
+	},
+	{ 
 		image: 'img/thumb-speedreadle.png',
 		heading: 'SpeedReadle',
 		subheading: 'Web application',
 		link: 'speedreadle',
-		tags: ['javascript','jquery']
+		tags: ['javascript','jquery'],
+		url: 'http://speedreadle.com/'
 	},
 	{ 
 		image: 'img/thumb-amorphous.png',
@@ -42,14 +49,16 @@ var data = [
 		heading: 'Twitter followers',
 		subheading: 'Social media',
 		link: 'twitterfollowers',
-		tags: ['twitter api', 'node.js']
+		tags: ['twitter api', 'node.js'],
+		url: 'http://twitter.d09s.com/'
 	},
 	{ 
 		image: 'img/thumb-kiddled.png',
 		heading: 'Kiddled',
 		subheading: 'Market research',
 		link: 'kiddled',
-		tags: ['django','python','responsive']
+		tags: ['django','python','responsive'],
+		url: 'http://www.kiddled.com/'
 	},
 	{ 
 		image: 'img/thumb-bitcoin.png',
@@ -84,14 +93,18 @@ var Projects = React.createClass({
 		}
 	},
 
-	handleClick: function(location) {
-		var url = location + '.html';
-		window.location = url;
+	handleClick: function(project) {
+		if (project.url) {
+			window.open(project.url, "_blank");
+		} else {
+			var url = project.link + '.html';
+			window.location = url;
+		}
 	},
 
 	render: function() {
     	var Project = this.props.data.map(function(d, index) {
-	    	var boundClick = this.handleClick.bind(this, d.link);
+	    	var boundClick = this.handleClick.bind(this, d);
 			return (
 				<div className="grid-item" id="grid-item" onClick={boundClick}>
 					<img src={d.image}></img>

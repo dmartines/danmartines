@@ -176,7 +176,8 @@ body {
   border-radius: 10%;
   background-color: #3E3E3D;
   color: #fff;
-  text-shadow: none;    
+  text-shadow: none;  
+  letter-spacing: 0.06em;  
 }
 
 .gist {
@@ -240,4 +241,24 @@ body {
   .cover-container {
     width: 90%;
   }
+}
+
+.jumbo-purple {
+  background: #4C2B2B; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(right, #4C2B2B , #8A5959); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #4C2B2B, #8A5959); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #4C2B2B, #8A5959); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #4C2B2B , #8A5959); /* Standard syntax */
+}
+
+.jumbo-green {
+  background: #499CA4; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(right, #499CA4 , #153E42); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #499CA4, #153E42); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #499CA4, #153E42); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #499CA4 , #153E42); /* Standard syntax */
+}
+
+.jumbo-blue {
+  background: #0089FF; /* For browsers that do not support gradients */
 }
