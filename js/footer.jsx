@@ -12,7 +12,7 @@ var Footer = React.createClass({
 		      	<a className="footer-link" href="mailto:dbmartines@gmail.com" target="_blank">dbmartines@gmail.com</a><br></br>
 		      	<a className="footer-link" href="http://twitter.com/danmartines" target="_blank">twitter</a><br></br>
 		      	<a className="footer-link" href="https://www.linkedin.com/in/danmartines" target="_blank">linkedin</a><br></br>
-		      	<a className="footer-link" href="http://www.danmartines.com" target="_blank">blog</a>
+		      	<a className="footer-link" href="http://www.danmartines.com" >blog</a>
 		      </div>
 		    </div>
 
