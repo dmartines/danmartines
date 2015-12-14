@@ -16,24 +16,33 @@
       a, a:hover, a:active {
         color: #808080 !important;
         text-shadow: none !important;
+        text-decoration: none;
       }
       p {
+        font-family: 'freight-big-pro', 'serif';
         font-size: 1.8em;
         font-weight: 100;
         line-height: 1.2em;
         padding-bottom: 1em;
+        -webkit-font-smoothing: antialiased;
+        word-wrap: break-word; 
       }
       .master-text {
-        font-size: 2em;
+        font-size: 2.9em;
         font-weight: 300;
-        letter-spacing: .1em;
+        letter-spacing: 0.01rem;
         color: #000;
-        padding-bottom: 2.5em;
+        padding-bottom: 1.5em;
+        padding-top: 1em;
+        
       }
       .highlight {
-        color: #000; 
+        color: #333; 
         font-weight: 300;
         font-style: italic;
+      }
+      .red {
+        color: red;
       }
       li {
         text-shadow: none !important;
@@ -43,12 +52,24 @@
         padding-top: 10em; 
         padding-bottom: 5em; 
       }
+      .experience {
+        background: #f9f9f9 !important;
+        width: 100% !important;
+        padding-top: 10rem;
+        padding-bottom: 10rem;
+      }
+      .experience p {
+        padding-bottom: 0px;
+      }
+      .clients {
+        color: #000;
+      }
       @media (max-width: 768px) {
         .container-bio {
           padding-top: 5em; 
           padding-bottom: 2em; 
         }
-        p {
+        p {          
           font-size: 1.3em;
           font-weight: 100;
           line-height: 1.2em;
@@ -73,6 +94,8 @@
 
     <!-- Custom styles for this template -->
     <link href="css/index.css" rel="stylesheet">
+    <script src="https://use.typekit.net/ozv1wmw.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -89,37 +112,68 @@
       <div class="row">
         <div class="col-md-12 text-center" >
           <img style="max-width: 100px; margin-bottom: 20px; " src="img/danmartines.png">
-          <p class="master-text">Hi, I am Dan Martines and I make software. I've been a programmer since a young age and I love building things. I graduated with  a <strong>BS Mechanic Engineering</strong> from Escola de Engenharia Mauá and I also have an <strong>MBA from MIT Sloan School of Management</strong> </p>
+          <p class="master-text">Hi, I'm <span class="highlight">Dan Martines</span> and I make software. I've been a programmer since I was a kid and I love building things.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-md-6">
-          <p>I joined <span class="highlight">Accenture</span> as a developer in 1998 and implemented the first global ecommerce platform for DuPont. </p>
+          <p>Joined <span class="highlight">Accenture</span> as a developer in 1998 and implemented the first global ecommerce platform for DuPont. </p>
           <p>After 3 years I joined a consulting startup called Adjoined Consulting as a dev lead, later acquired by Cap Gemini. </p>
           <p>I came back to Accenture and progressively gained responsibilities including turning around complex programs and leading teams of <span class="highlight">70+ developers</span>.</p>
         </div>
         <div class="col-md-6">
-          <p>In 2012 I left to become the <span class="highlight">CTO of a tech startup</span>, which was <span class="highlight">acquired by IMS Health</span> in 2014.</p>
-          <p>I joined the <span class="highlight">Boston Consulting Group</span> to work with top clients on technology strategy. I have the opportunity to get involved in topics such as Agile delivery and Bitcoin. </p>
-          <p>Today I spend my days working on client challenges, coding, and helping startups.</p>
+          <p>In 2012 I left to become the <span class="highlight">CTO of a tech startup</span>, which was <span class="highlight red">acquired by IMS Health</span> in 2014.</p>
+          <p>I joined the <span class="highlight red">Boston Consulting Group</span> to work with top clients on technology strategy. I have the opportunity to get involved in topics such as Agile delivery and Bitcoin. </p>
+          <p>Today I spend my days working with great clients, <span class="highlight red">coding</span>, and helping startups. </p>
         </div>
       </div>
-    </div>
-    <div class="container">
       <div class="row">
-        <div class="col-md-2">
-          <p>CLIENTS</p>
+        <div class="col-md-12">
+
         </div>
-        <div class="col-md-6">
-          <p>Bank of America</p> 
-          <p>DuPont</p>
-          <p>National Bank of Canada</p>
-          <p>American Express</p>
+      </div>  
+    </div>
+    <div class="experience">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" style="margin-bottom: 40px; ">
+            <p class="clients">clients</p>
+            <p>Bank of America</p> 
+            <p>DuPont</p>
+            <p>National Bank of Canada</p>
+            <p>American Express</p>
+            <p>Ross Stores</p>
+            <p>Boston Scientific</p>
+            <p>RBS Citizens</p>
+          </div>
+          <div class="col-md-6" style="margin-bottom: 40px; ">
+            <p class="clients">tech</p>
+            <p>Design, development, prototyping</p>
+            <p>All things Javascript (react, node, meteor)</p> 
+            <p>Databases (mongodb, sql, mysql)</p>
+            <p>Python</p>
+            <p>APIs</p>
+            <p>Phonegap</p>
+            <p>Data mining</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6" style="margin-bottom: 40px;">
+            <p class="clients">education</p>
+            <p>BS Mechanic Engineering, Escola de Engenharia Mauá</p>
+            <p>MBA, MIT Sloan School of Management</p>
+          </div>
+          <div class="col-md-6">
+            <p class="clients">contact</p>
+            <a href="mailto:dbmartines@gmail.com" target="_blank"><p>dbmartines@gmail.com</p></a>
+            <a href="http://twitter.com/danmartines" target="_blank"><p>twitter</p></a>
+            <a href="https://www.linkedin.com/in/danmartines" target="_blank"><p>linkedin</p></a>
+            <a href="http://www.danmartines.com" target="_blank"><p>blog</p></a>
+          </div>
         </div>
       </div>
     </div>
-
-    <div id="footer"></div>
+    <div id="foote1r"></div>
 
 
     <!-- <div class="container" >
