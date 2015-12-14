@@ -386,6 +386,10 @@ img, iframe {
   background: linear-gradient(to right, #499CA4 , #153E42); /* Standard syntax */
 }
 
+.jumbo-darkgreen {
+  background: #63AA47; /* For browsers that do not support gradients */
+}
+
 .jumbo-blue {
   background: #0089FF; /* For browsers that do not support gradients */
 }

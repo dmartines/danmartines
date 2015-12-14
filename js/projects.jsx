@@ -34,8 +34,7 @@ var data = [
 		heading: 'BUILDING IMPACT',
 		subheading: 'Mobile app design & development',
 		tags: ['phonegap','ios','mobile design'],
-		link: 'bi',
-		url: 'https://itunes.apple.com/us/app/weather-minimalist-weather/id1028230928?ls=1&mt=8'
+		link: 'bi'
 	},
 	{ 
 		image: 'img/thumb-speedreadle.png',
