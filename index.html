@@ -17,6 +17,11 @@
 
     <!-- Custom styles for this template -->
     <link href="css/index.css" rel="stylesheet">
+    <style type="text/css">
+      #cover-heading, #index-nav {
+        display: none;
+      }
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,14 +41,18 @@
           <div class="masthead">
             <div class="inner">
               <nav>
-                <ul class="nav masthead-nav">
-                  <li class="active"><a href="#">home</a>/</li>
-                  <li><a href="#portfolio">portfolio</a>/</li>
-                  <li><a href="http://www.danmartines.com" target="_blank">blog</a>/</li>
-                  <li><a href="bio.html">bio</a></li>
+                <ul class="nav masthead-nav" id="index-nav">
+                  <li class="active" style="color: #fff;"><a href="#">home</a>/</li>
+                  <li style="color: #fff;"><a href="#portfolio">portfolio</a>/</li>
+                  <li style="color: #fff;"><a href="http://www.danmartines.com" target="_blank">blog</a>/</li>
+                  <li style="color: #fff;"><a href="bio.html">bio</a></li>
                 </ul>
               </nav>
             </div>
+          </div>
+
+          <div class="inner cover">
+            <h1 class="cover-heading" id="cover-heading">hi, i'm dan martines and i make software</h1>
           </div>
 
         </div>
@@ -56,20 +65,13 @@
       <div class="masthead masthead-porfolio">
         <div class="inner">
           <h3 class="masthead-brand portfolio-heading">portfolio</h3>
-          <nav>
-            <ul class="nav masthead-nav">
-              <li><a href="#home">home</a>/</li>
-              <li class="active"><a href="index.html#portfolio">portfolio</a>/</li>
-              <li><a href="#">blog</a>/</li>
-              <li><a href="#">bio</a></li>
-            </ul>
-          </nav>
         </div>
       </div>
 
       <div id="projects"></div>
     </div>
 
+    <div id="footer"></div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -79,17 +81,16 @@
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src="js/imagesLoaded.js"></script>
-    <script src="js/masonry.js"></script>  
     <script type="text/jsx" src="js/projects.jsx"></script>
+    <script type="text/jsx" src="js/footer.jsx"></script>
     <script type="text/javascript">
-      $('#grid').masonry({
-        // options
-        itemSelector: '#grid-item',
-        gutter: 2,
-        transitionDuration: '0.4s',
-        percentPosition: true
+      $(document).ready(function() {
+        setTimeout(function() {
+          $('#cover-heading').fadeIn(1000);
+          $('#index-nav').fadeIn(1000);
+        }, 1000);
       });
     </script>
+   
   </body>
 </html>

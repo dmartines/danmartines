@@ -16,6 +16,16 @@
 
     <!-- Custom styles for this template -->
     <link href="css/index.css" rel="stylesheet">
+    <style type="text/css">
+      img {
+        margin: auto;
+        margin-bottom: 20px;
+        display: -webkit-box;
+      }
+      a, a:focus, a:hover {
+        color: #666 !important;
+      }  
+    </style>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -50,7 +60,8 @@
           		<div class="col-md-10 col-md-offset-1">
           			<h1>Bitcoin</h1>
           			<h3>Web data mining to discover startups in bitcoin space</h3>
-          			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p></br>
+          			<p>The goal of this project was to use "startup" data to understand the direction of innovation in cryptocurrency. I used crunchbase to filter startups in the Bitcoin and blockchain space. Used python's NLTK natural language library to filter out stopwords from dataset and then Wordle to develop the text visualization below. </p></br>
+                <img src="img/bitcoin1.png">
           			<script src="https://gist.github.com/dmartines/cd28b9a1f39b3e41ff41.js"></script></br>
           		</div>
           	</div>
@@ -68,5 +79,6 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="js/index.js"></script>
   </body>
 </html>

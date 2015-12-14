@@ -2,14 +2,14 @@
 var data = [
 	{ 
 		image: 'img/thumb-vis.png',
-		heading: 'Healthcare analytics',
+		heading: 'HEALTHCARE ANALYTICS',
 		subheading: 'CTO tech startup',
 		tags: ['java', 'apache', 'mysql'],
 		link: 'vis'
 	},
 	{ 
-		image: 'img/thumb-weather.png',
-		heading: 'Weather minimalist',
+		image: 'img/thumb-weather-mobile.png',
+		heading: 'WEATHER MINIMALIST',
 		subheading: 'Mobile app development',
 		tags: ['phonegap','ios','appstore'],
 		link: 'weather',
@@ -17,21 +17,29 @@ var data = [
 	},
 	{ 
 		image: 'img/thumb-worldcup.png',
-		heading: 'Worldcup',
+		heading: 'WORLDCUP',
 		subheading: 'Social media',
 		link: 'worldcup',
 		tags: ['node.js','twitter','api']
 	},
 	{ 
 		image: 'img/thumb-alab.png',
-		heading: 'Analytics lab',
+		heading: 'MIT ANALYTICS LAB',
 		subheading: 'Machine learning',
 		link: 'alab',
 		tags: ['python','natural language','wordle']
 	},
 	{ 
+		image: 'img/thumb-bi.png',
+		heading: 'BUILDING IMPACT',
+		subheading: 'Mobile app design & development',
+		tags: ['phonegap','ios','mobile design'],
+		link: 'bi',
+		url: 'https://itunes.apple.com/us/app/weather-minimalist-weather/id1028230928?ls=1&mt=8'
+	},
+	{ 
 		image: 'img/thumb-speedreadle.png',
-		heading: 'SpeedReadle',
+		heading: 'SPEEDREADLE',
 		subheading: 'Web application',
 		link: 'speedreadle',
 		tags: ['javascript','jquery'],
@@ -39,14 +47,14 @@ var data = [
 	},
 	{ 
 		image: 'img/thumb-amorphous.png',
-		heading: 'Amorphous',
+		heading: 'AMORPHOUS',
 		subheading: 'Web design and development',
 		link: 'amorphous',
 		tags: ['html 5','css']
 	},
 	{ 
 		image: 'img/thumb-twitterfollowers.png',
-		heading: 'Twitter followers',
+		heading: 'TWITTER FOLLOWERS',
 		subheading: 'Social media',
 		link: 'twitterfollowers',
 		tags: ['twitter api', 'node.js'],
@@ -54,7 +62,7 @@ var data = [
 	},
 	{ 
 		image: 'img/thumb-kiddled.png',
-		heading: 'Kiddled',
+		heading: 'KIDDLED',
 		subheading: 'Market research',
 		link: 'kiddled',
 		tags: ['django','python','responsive'],
@@ -62,36 +70,15 @@ var data = [
 	},
 	{ 
 		image: 'img/thumb-bitcoin.png',
-		heading: 'Bitcoin startups',
+		heading: 'BITCOIN INNOVATION',
 		subheading: 'Data science',
 		link: 'bitcoin',
-		tags: ['python']
-	},
-	{ 
-		image: 'img/thumb-ucuzal.png',
-		heading: 'Ucuzal',
-		subheading: 'Mobile concept',
-		link: 'ucuzal',
-		tags: ['html 5','css','jquery']
+		tags: ['python','crunchbase api']
 	}
 ];
 
 
 var Projects = React.createClass({
-
-	componentDidUpdate: function() {
-		console.log('Component did update');
-		if ($('#grid-item').length > 0) {
-		  setTimeout(refreshMasonry, 500); 
-		}
-	},
-
-	componentDidMount: function() {
-		console.log('Component did mount');
-		if ($('#grid-item').length > 0) {
-		  setTimeout(refreshMasonry, 500); 
-		}
-	},
 
 	handleClick: function(project) {
 		if (project.url) {
@@ -102,34 +89,66 @@ var Projects = React.createClass({
 		}
 	},
 
+	mouseEnter: function(index) {
+		var projectId = '#' + index;
+		$(projectId).css('opacity',1);
+	},
+
+	mouseLeave: function(index) {
+		var projectId = '#' + index;
+		$(projectId).css('opacity',0);
+	},
+
 	render: function() {
+		var colHeight = $(window).height() / 2;
+		var colStyle = { padding: '0px', minHeight: colHeight};
+		var rowStyle = { margin: '0px'};
+		var imgStyle = {    position: 'absolute',
+						    top: '0px',
+						    bottom: '0px',
+						    margin: 'auto',
+						    left: '0px',
+						    right: '0px'
+						};
+		var hoverStyle = {display: 'none'};
     	var Project = this.props.data.map(function(d, index) {
 	    	var boundClick = this.handleClick.bind(this, d);
+	    	var boundmouseEnter = this.mouseEnter.bind(this, index);
+	    	var boundMouseLeave = this.mouseLeave.bind(this, index);
+			var projectStyle = {
+									background: 'url(' + d.image + ') no-repeat center center',
+									backgroundSize: 'cover',
+									backgroundColor: '#BABAE2', 
+									minHeight: colHeight
+								};
 			return (
-				<div className="grid-item" id="grid-item" onClick={boundClick}>
-					<img src={d.image}></img>
-					<h4 className='heading'>{d.heading}</h4>
-					<h5 className='subheading'>{d.subheading}</h5>
-					<div className="tags">
-						{ d.tags.map(function(tag, index) {
-							return <span className="tag">{tag}</span>        		
-						})}
+				<div className="col-md-6 col-sm-12" id="grid-item" style={colStyle} onMouseEnter={boundmouseEnter} onMouseLeave={boundMouseLeave} onClick={boundClick}>
+					<div className="project" style={projectStyle}>
+						<div className='project-hover' id={index}>
+							<h3 className="thumbHeading">{d.heading}</h3>
+							<p>{d.subheading}</p>
+							<div className="tags">
+								{ d.tags.map(function(tag, index) {
+								return <span className="tag">{tag}</span>
+								})}
+							</div>
+						</div>	
 					</div>
 				</div>
 	        );
 	    }.bind(this));
-	    return <div className="grid" id="grid">{ Project } </div>;
+	    return <div className="row" id="grid" style={rowStyle} >{ Project } </div>;
 	}
 });
 
 ReactDOM.render(<Projects data={data} />, document.getElementById('projects'));
 
-function refreshMasonry() {
-	$('#grid').masonry({
-		// options
-		itemSelector: '#grid-item',
-		gutter: 2,
-		// transitionDuration: '0.4s',
-		percentPosition: true
-	});
-}
+						// <img src={d.image} style={imgStyle}></img>
+						// <h4 className='heading'>{d.heading}</h4>
+						// <h5 className='subheading'>{d.subheading}</h5>
+						// <div className="tags">
+						// 	{ d.tags.map(function(tag, index) {
+						// 		return <span className="tag">{tag}</span>
+						// 	})}
+						// </div>
+

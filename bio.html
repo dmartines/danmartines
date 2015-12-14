@@ -11,7 +11,59 @@
     <style type="text/css">
       html, body {
         background-color: #fff !important;
+        color: #808080;
       }
+      a, a:hover, a:active {
+        color: #808080 !important;
+        text-shadow: none !important;
+      }
+      p {
+        font-size: 1.8em;
+        font-weight: 100;
+        line-height: 1.2em;
+        padding-bottom: 1em;
+      }
+      .master-text {
+        font-size: 2em;
+        font-weight: 300;
+        letter-spacing: .1em;
+        color: #000;
+        padding-bottom: 2.5em;
+      }
+      .highlight {
+        color: #000; 
+        font-weight: 300;
+        font-style: italic;
+      }
+      li {
+        text-shadow: none !important;
+        color: #808080;
+      }
+      .container-bio {
+        padding-top: 10em; 
+        padding-bottom: 5em; 
+      }
+      @media (max-width: 768px) {
+        .container-bio {
+          padding-top: 5em; 
+          padding-bottom: 2em; 
+        }
+        p {
+          font-size: 1.3em;
+          font-weight: 100;
+          line-height: 1.2em;
+          padding-bottom: 1em;
+        }
+        .master-text {
+          font-size: 1.1em;
+          font-weight: 300;
+          letter-spacing: .1em;
+          color: #000;
+          padding-bottom: 1.5em;
+        }
+      }
+
+
     </style>
 
     <title>Dan The Maker</title>
@@ -33,18 +85,50 @@
 
     <div id="nav-portfolio"></div>
 
-    <div class="jumbotron jumbo-purple" style="padding-top: 10em; background-color:#499CA4;">
-      <div class="container">
-        <h1>Bio</h1>
+    <div class="container container-bio">
+      <div class="row">
+        <div class="col-md-12 text-center" >
+          <img style="max-width: 100px; margin-bottom: 20px; " src="img/danmartines.png">
+          <p class="master-text">Hi, I am Dan Martines and I make software. I've been a programmer since a young age and I love building things. I graduated with  a <strong>BS Mechanic Engineering</strong> from Escola de Engenharia Mauá and I also have an <strong>MBA from MIT Sloan School of Management</strong> </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <p>I joined <span class="highlight">Accenture</span> as a developer in 1998 and implemented the first global ecommerce platform for DuPont. </p>
+          <p>After 3 years I joined a consulting startup called Adjoined Consulting as a dev lead, later acquired by Cap Gemini. </p>
+          <p>I came back to Accenture and progressively gained responsibilities including turning around complex programs and leading teams of <span class="highlight">70+ developers</span>.</p>
+        </div>
+        <div class="col-md-6">
+          <p>In 2012 I left to become the <span class="highlight">CTO of a tech startup</span>, which was <span class="highlight">acquired by IMS Health</span> in 2014.</p>
+          <p>I joined the <span class="highlight">Boston Consulting Group</span> to work with top clients on technology strategy. I have the opportunity to get involved in topics such as Agile delivery and Bitcoin. </p>
+          <p>Today I spend my days working on client challenges, coding, and helping startups.</p>
+        </div>
       </div>
     </div>
-    <div class="container" >
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2">
+          <p>CLIENTS</p>
+        </div>
+        <div class="col-md-6">
+          <p>Bank of America</p> 
+          <p>DuPont</p>
+          <p>National Bank of Canada</p>
+          <p>American Express</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+
+
+    <!-- <div class="container" >
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
           <img src="img/bio.png">
         </div>
       </div>
-    </div>            
+    </div>   -->          
 
 
     <!-- Bootstrap core JavaScript
@@ -55,6 +139,7 @@
     <script src="https://fb.me/JSXTransformer-0.13.3.js"></script>
     <script src='https://code.jquery.com/jquery-2.1.4.min.js'></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script type="text/jsx" src='js/footer.jsx'></script>
     <script type="text/jsx" src='js/nav-bio.jsx'></script>
   </body>
 </html>
