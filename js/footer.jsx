@@ -5,14 +5,12 @@ var Footer = React.createClass({
 
 		return (
 		    <div className="row footer-row">
-		      <div className="col-md-offset-1 col-md-2 col-sm-3">
+		      <div className="col-md-offset-1 col-sm-12">
 		      	<h2 className="footer-header">CONTACT</h2>
-		      </div>
-		      <div className="col-md-6 col-sm-9">
-		      	<a className="footer-link" href="mailto:dbmartines@gmail.com" target="_blank">dbmartines@gmail.com</a><br></br>
-		      	<a className="footer-link" href="http://twitter.com/danmartines" target="_blank">twitter</a><br></br>
-		      	<a className="footer-link" href="https://www.linkedin.com/in/danmartines" target="_blank">linkedin</a><br></br>
-		      	<a className="footer-link" href="http://www.danmartines.com" >blog</a>
+		      	<a className="footer-link" href="mailto:dbmartines@gmail.com" target="_blank"><img className="contact-img" src="img/email.png"></img></a>
+		      	<a className="footer-link" href="https://www.instagram.com/dmartines/" target="_blank"><img className="contact-img" src="img/instagram.png"></img></a>
+		      	<a className="footer-link" href="https://www.linkedin.com/in/danmartines/" target="_blank"><img className="contact-img" src="img/linkedin.png"></img></a>
+		      	<a className="footer-link" href="http://twitter.com/danmartines" target="_blank"><img className="contact-img" src="img/twitter.png"></img></a>
 		      </div>
 		    </div>
 
