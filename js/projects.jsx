@@ -1,6 +1,24 @@
 /** @jsx React.DOM */
 var data = [
 	{ 
+		image: 'img/thumb-resist.png',
+		imgpos: 'top',
+		heading: 'RESISTANCE SCHOOL',
+		subheading: 'Web application development',
+		link: 'resistanceschool',
+		tags: ['wordpress','css'],
+		url: 'https://www.resistanceschool.com/'
+	},
+	{ 
+		image: 'img/thumb-ragtag.png',
+		imgpos: 'top',
+		heading: 'RAGTAG',
+		subheading: 'Web application development',
+		link: 'ragtag',
+		tags: ['wordpress','javascript','css'],
+		url: 'https://ragtag.org/'
+	},
+	{ 
 		image: 'img/thumb-vis.png',
 		heading: 'HEALTHCARE ANALYTICS',
 		subheading: 'CTO tech startup',
@@ -99,6 +117,10 @@ var Projects = React.createClass({
 	},
 
 	render: function() {
+		var heightDivider = 2;
+		if ($(window).width() < 600)
+			heightDivider = 4;
+
 		var colHeight = $(window).height() / 2;
 		var colStyle = { padding: '0px', minHeight: colHeight};
 		var rowStyle = { margin: '0px'};
@@ -114,21 +136,25 @@ var Projects = React.createClass({
 	    	var boundClick = this.handleClick.bind(this, d);
 	    	var boundmouseEnter = this.mouseEnter.bind(this, index);
 	    	var boundMouseLeave = this.mouseLeave.bind(this, index);
+	    	var imgpos = 'center'
+	    	if (d.imgpos) {
+	    		imgpos = d.imgpos
+	    	}
 			var projectStyle = {
-									background: 'url(' + d.image + ') no-repeat center center',
+									background: 'url(' + d.image + ') no-repeat center ' + imgpos,
 									backgroundSize: 'cover',
 									backgroundColor: '#BABAE2', 
-									minHeight: colHeight
+									minHeight: colHeight,
 								};
 			return (
-				<div className="col-md-6 col-sm-12" id="grid-item" style={colStyle} onMouseEnter={boundmouseEnter} onMouseLeave={boundMouseLeave} onClick={boundClick}>
+				<div key={index} className="col-md-6 col-sm-12" id="grid-item" style={colStyle} onMouseEnter={boundmouseEnter} onMouseLeave={boundMouseLeave} onClick={boundClick}>
 					<div className="project" style={projectStyle}>
 						<div className='project-hover' id={index}>
 							<h3 className="thumbHeading">{d.heading}</h3>
 							<p>{d.subheading}</p>
 							<div className="tags">
-								{ d.tags.map(function(tag, index) {
-								return <span className="tag">{tag}</span>
+								{ d.tags.map(function(tag, index2) {
+								return <span key={index2} className="tag">{tag}</span>
 								})}
 							</div>
 						</div>	

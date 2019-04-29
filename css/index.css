@@ -202,7 +202,7 @@ body {
 
 .project {
   position: relative;
-  border: 10px solid #fff;
+  /*border: 10px solid #fff;*/
 }
 
 .project-hover {
